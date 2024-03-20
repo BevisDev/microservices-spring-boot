@@ -6,7 +6,7 @@
     <groupId>com</groupId>
     <artifactId>rest</artifactId>
     <version>1.0.0</version>
-    <name>Engine Rest</name>
+    <name>Engine Rest Starter</name>
     <packaging>${packaging.type}</packaging>
     <description>
         Example Engine Rest
