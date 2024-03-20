@@ -13,10 +13,14 @@ spring.jpa:
 #==========================================
 #========= Camunda Zeebe
 #=========================================
-zeebe:
-  client:
-    cloud:
-      region: ont-1
-      clusterId: 8af3c1bb-f29f-4037-81f5-1af81ba3066e
-      clientId: O.PqmO4rf70DkwsQuh-QurovItz4mBGv
-      clientSecret: eUSNjRsDhcCsYcLaviR_t61cN5JNZweMQC~Y5C0M8GAwTNnzn.5rEXXMK4CU.b7J
+## this is for Camunda SasS
+zeebe.client.cloud:
+  region: ont-1
+  clusterId: 8af3c1bb-f29f-4037-81f5-1af81ba3066e
+  clientId: O.PqmO4rf70DkwsQuh-QurovItz4mBGv
+  clientSecret: eUSNjRsDhcCsYcLaviR_t61cN5JNZweMQC~Y5C0M8GAwTNnzn.5rEXXMK4CU.b7J
+
+### this is for Camunda Self-Managed
+#zeebe.client:
+#  broker.gateway-address: 127.0.0.1:26500
+#  security.plaintext: true #if enabled SSL, turn off

@@ -1,6 +1,6 @@
-package com.camunda.constant;
+package com.camunda.consts;
 
-public class ApiConst {
+public final class ApiConst {
     public static final String API = "/api";
     public static final String STATUS = "/status";
     public static final String STATUS_DATABASE = "/status-database";

@@ -22,6 +22,12 @@
     <properties>
         <!-- zeebe version -->
         <zeebe.version>8.4.0</zeebe.version>
+        <!-- JWT version -->
+        <java.jwt.version>4.4.0</java.jwt.version>
+
+        <!-- other version -->
+        <commons.lang3.version>3.12.0</commons.lang3.version>
+        <commons.io.version>2.13.0</commons.io.version>
 
         <!-- java version -->
         <java.version>17</java.version>
@@ -35,6 +41,24 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java.jwt.version}</version>
+        </dependency>
+        
         <dependency>
             <groupId>io.camunda</groupId>
             <artifactId>zeebe-client-java</artifactId>
@@ -88,6 +112,15 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
