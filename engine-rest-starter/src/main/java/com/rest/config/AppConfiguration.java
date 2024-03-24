@@ -19,4 +19,10 @@ public class AppConfiguration {
     @Value("${build.date}")
     private String buildDate;
 
+    @Value("${restTemplate.connectTimeout}")
+    private long restTemplateConnectTimeout;
+
+    @Value("${restTemplate.readTimeout}")
+    private long restTemplateReadTimeout;
+
 }

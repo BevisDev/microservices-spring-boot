@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com</groupId>
-    <artifactId>camunda</artifactId>
+    <groupId>com.camunda</groupId>
+    <artifactId>camunda-starter</artifactId>
     <version>1.0.0</version>
     <name>Camunda Starter</name>
     <description>
@@ -21,44 +21,14 @@
 
     <properties>
         <!-- zeebe version -->
-        <zeebe.version>8.4.0</zeebe.version>
-        <!-- JWT version -->
-        <java.jwt.version>4.4.0</java.jwt.version>
-
-        <!-- other version -->
-        <commons.lang3.version>3.12.0</commons.lang3.version>
-        <commons.io.version>2.13.0</commons.io.version>
+        <zeebe.version>8.4.2</zeebe.version>
 
         <!-- java version -->
         <java.version>17</java.version>
-        <!-- maven properties -->
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons.lang3.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons.io.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>${java.jwt.version}</version>
-        </dependency>
-        
         <dependency>
             <groupId>io.camunda</groupId>
             <artifactId>zeebe-client-java</artifactId>

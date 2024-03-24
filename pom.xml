@@ -13,13 +13,9 @@
         This pom defines the modules that make up the build.
     </description>
 
-    <properties>
-        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
-    </properties>
-
     <modules>
         <module>camunda-starter</module>
-        <module>rest-starter</module>
+        <module>engine-rest-starter</module>
     </modules>
-    
+
 </project>

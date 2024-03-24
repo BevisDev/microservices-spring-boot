@@ -1,18 +1,15 @@
 package com.rest.base;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
 
-@Entity
-@Getter
-@Setter
+@Data
+@MappedSuperclass
 public class BaseEntity {
 
     @Id
@@ -20,15 +17,16 @@ public class BaseEntity {
     private String id;
 
     @CreationTimestamp
+    @Temporal(TemporalType.DATE)
+    @Column(updatable = false)
     private Date createdDate;
 
-    @UpdateTimestamp
-    private Date updatedDate;
-
     @CreationTimestamp
+    @Column(updatable = false)
     private Date createdDateTime;
 
     @UpdateTimestamp
+    @Column(insertable = false)
     private Date updatedDateTime;
 
 }

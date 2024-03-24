@@ -3,7 +3,7 @@ package com.rest.base;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.rest.dto.ErrorDTO;
-import com.rest.enums.ErrorCodeEnum;
+import com.rest.enums.ErrorCode;
 import com.rest.utils.ValidateUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +31,7 @@ public class BaseResponse extends ErrorDTO implements Serializable {
      *
      * @param errorCode error code
      */
-    public void addErrors(ErrorCodeEnum errorCode) {
+    public void addErrors(ErrorCode errorCode) {
         ErrorDTO error = new ErrorDTO();
         error.setError(errorCode);
         if (ValidateUtils.isNullOrEmpty(this.errors)) {

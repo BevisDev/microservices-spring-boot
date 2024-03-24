@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public enum StatusEnum {
+public enum Status {
     SUCCESS("Success","SUCCEEDED"),
     FAIL("Fail", "FAILED"),
     CREATE("Create", "CREATED"),

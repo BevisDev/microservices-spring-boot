@@ -3,7 +3,7 @@ package com.rest.service.impl;
 import com.rest.config.AppConfiguration;
 import com.rest.constant.Const;
 import com.rest.dto.HealthCheckDTO;
-import com.rest.enums.ErrorCodeEnum;
+import com.rest.enums.ErrorCode;
 import com.rest.service.HealthCheckService;
 import com.rest.utils.DateTimeUtils;
 import com.rest.utils.ValidateUtils;
@@ -44,7 +44,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
         } catch (Exception ex) {
             log.error("getStatusSystem has error: ", ex);
             healthCheckDTO.setMessage(ex.getMessage());
-            ErrorCodeEnum.setServerError(healthCheckDTO);
+            ErrorCode.setServerError(healthCheckDTO);
         }
         return healthCheckDTO;
     }
@@ -62,7 +62,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
         } catch (Exception ex) {
             log.error("getStatusDatabase has error: ", ex);
             healthCheckDTO.setMessage(ex.getMessage());
-            ErrorCodeEnum.setServerError(healthCheckDTO);
+            ErrorCode.setServerError(healthCheckDTO);
         }
         return healthCheckDTO;
     }

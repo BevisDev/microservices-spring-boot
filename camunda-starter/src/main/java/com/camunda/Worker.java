@@ -1,4 +1,4 @@
-package com.camunda.worker;
+package com.camunda;
 
 import io.camunda.zeebe.client.api.response.ActivatedJob;
 import io.camunda.zeebe.client.api.worker.JobClient;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class CheckAgeWorker {
+public class Worker {
 
     @JobWorker(type = "foo")
     public Map<String, String> checkAge(JobClient client, ActivatedJob job) {

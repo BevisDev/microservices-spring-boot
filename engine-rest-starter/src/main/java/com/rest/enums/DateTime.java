@@ -1,4 +1,4 @@
-package com.camunda.enums;
+package com.rest.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public enum DateTimeEnum {
+public enum DateTime {
     // =========================================================== //
     // ------------------ Days of week
     // =========================================================== //

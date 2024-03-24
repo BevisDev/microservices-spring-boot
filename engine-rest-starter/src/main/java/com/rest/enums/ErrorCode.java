@@ -1,13 +1,13 @@
-package com.camunda.enums;
+package com.rest.enums;
 
-import com.camunda.dto.common.ResponseDTO;
+import com.rest.base.BaseResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-public enum ErrorCodeEnum {
+public enum ErrorCode {
     // =========================================================== //
     // ------------------ API Gateway Reject Code 4xx
     // =========================================================== //
@@ -48,22 +48,22 @@ public enum ErrorCodeEnum {
     /**
      * set error code Internal Server Error.
      *
-     * @param response extend ResponseDTO
-     * @param <T>      extend ResponseDTO
+     * @param response extend BaseResponse
+     * @param <T>      extend BaseResponse
      */
-    public static <T extends ResponseDTO> void setServerError(T response) {
-        response.setError(ErrorCodeEnum.SERVER_ERROR);
+    public static <T extends BaseResponse> void setServerError(T response) {
+        response.setError(ErrorCode.SERVER_ERROR);
         response.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     /**
      * set error code Invalid Request.
      *
-     * @param response extend ResponseDTO
-     * @param <T>      extend ResponseDTO
+     * @param response extend BaseResponse
+     * @param <T>      extend BaseResponse
      */
-    public static <T extends ResponseDTO> void setInvalidRequest(T response) {
-        response.setError(ErrorCodeEnum.INVALID_REQUEST);
+    public static <T extends BaseResponse> void setInvalidRequest(T response) {
+        response.setError(ErrorCode.INVALID_REQUEST);
         response.setHttpStatus(HttpStatus.BAD_REQUEST);
     }
 
