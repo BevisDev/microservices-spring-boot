@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-public enum ErrorCode {
+public enum ResponseStatus {
     // =========================================================== //
     // ------------------ API Gateway Reject Code 4xx
     // =========================================================== //
@@ -33,8 +33,6 @@ public enum ErrorCode {
     // API Code 4xx -- Client error
     INVALID_REQUEST("C1000", "Invalid Request."),
     INVALID_EMAIL("C1001", "Invalid Email."),
-    INVALID_REQUEST_TIMESTAMP("C1002", "Request Timestamp is incorrect."),
-    INVALID_SIGNATURE("C1003", "Signature is incorrect."),
 
     // API Code 5xx - Server error
     SERVER_ERROR("A1000", "Internal Server Error."),
@@ -42,7 +40,7 @@ public enum ErrorCode {
     SERVER_TIMEOUT("A1002", "Server gateway is timed out"),
     ;
 
-    private String errorCode;
+    private String statusCode;
     private String message;
 
     /**
@@ -52,7 +50,7 @@ public enum ErrorCode {
      * @param <T>      extend BaseResponse
      */
     public static <T extends BaseResponse> void setServerError(T response) {
-        response.setError(ErrorCode.SERVER_ERROR);
+        response.setResponseStatus(ResponseStatus.SERVER_ERROR);
         response.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -63,7 +61,7 @@ public enum ErrorCode {
      * @param <T>      extend BaseResponse
      */
     public static <T extends BaseResponse> void setInvalidRequest(T response) {
-        response.setError(ErrorCode.INVALID_REQUEST);
+        response.setResponseStatus(ResponseStatus.INVALID_REQUEST);
         response.setHttpStatus(HttpStatus.BAD_REQUEST);
     }
 

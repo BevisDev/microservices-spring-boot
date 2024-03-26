@@ -1,9 +1,10 @@
 package com.rest.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rest.dto.ErrorDTO;
-import com.rest.enums.ErrorCode;
+import com.rest.dto.ResponseStatusDTO;
+import com.rest.enums.ResponseStatus;
 import com.rest.utils.ValidateUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,14 +15,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter
 @Setter
-public class BaseResponse extends ErrorDTO implements Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class BaseResponse<T> extends ResponseStatusDTO implements Serializable {
     private static final long serialVersionUID = -5952913922941280904L;
 
-    private Object payload;
-    private List<ErrorDTO> errors; // return if it has errors
+    private T payload;
+    private List<ResponseStatusDTO> errors; // return if it has errors
 
     @JsonIgnore
     private HttpStatus httpStatus;
@@ -29,25 +31,26 @@ public class BaseResponse extends ErrorDTO implements Serializable {
     /**
      * add errors
      *
-     * @param errorCode error code
+     * @param responseStatus error code
      */
-    public void addErrors(ErrorCode errorCode) {
-        ErrorDTO error = new ErrorDTO();
-        error.setError(errorCode);
+    public void addResponseStatus(ResponseStatus responseStatus) {
+        ResponseStatusDTO respStatus = new ResponseStatusDTO();
+        respStatus.setResponseStatus(responseStatus);
         if (ValidateUtils.isNullOrEmpty(this.errors)) {
             this.errors = new ArrayList<>();
         }
-        this.errors.add(error);
+        this.errors.add(respStatus);
     }
 
     /**
      * check response if it has error
+     *
      * @return
      */
     public boolean hasError() {
         return httpStatus != null
                 && (httpStatus.is4xxClientError() || httpStatus.is5xxServerError())
-                && StringUtils.isNotEmpty(errorCode)
+                && StringUtils.isNotEmpty(statusCode)
                 && StringUtils.isNotEmpty(message);
     }
 

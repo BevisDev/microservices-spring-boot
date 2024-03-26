@@ -5,6 +5,8 @@ import com.rest.base.BaseResponse;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,7 +17,7 @@ public class HealthCheckDTO extends BaseResponse {
     private String service;
     private String profileActive;
     private String buildDate;
-    private String requestTime;
+    private Date requestTime;
     private String podName;
 
 }
