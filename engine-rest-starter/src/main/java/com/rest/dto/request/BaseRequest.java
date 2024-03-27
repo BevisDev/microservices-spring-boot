@@ -1,4 +1,4 @@
-package com.rest.base;
+package com.rest.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

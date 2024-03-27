@@ -1,6 +1,5 @@
 package com.rest.entity;
 
-import com.rest.base.BaseEntity;
 import jakarta.persistence.Entity;
 import lombok.Data;
 

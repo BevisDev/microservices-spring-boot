@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.time.Duration;
 
 @Configuration
-public class RestConfiguration {
+public class RestTemplateConfiguration {
 
     @Autowired
     private AppConfiguration appConfiguration;
@@ -17,8 +17,8 @@ public class RestConfiguration {
     @Bean
     public RestTemplate getRestTemplate() {
         return new RestTemplateBuilder()
-                .setConnectTimeout(Duration.ofMillis(appConfiguration.restTemplateConnectTimeout()))
-                .setReadTimeout(Duration.ofMillis(appConfiguration.restTemplateReadTimeout()))
+                .setConnectTimeout(Duration.ofMillis(appConfiguration.getRestTemplateConnectTimeout()))
+                .setReadTimeout(Duration.ofMillis(appConfiguration.getRestTemplateReadTimeout()))
                 .build();
     }
 

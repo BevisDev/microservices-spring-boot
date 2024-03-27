@@ -37,9 +37,9 @@ public class HealthCheckServiceImpl implements HealthCheckService {
             if (!isDetail) {
                 return healthCheckDTO;
             }
-            healthCheckDTO.setProfileActive(appConfiguration.profileActive());
-            healthCheckDTO.setVersion(appConfiguration.version());
-            healthCheckDTO.setBuildDate(appConfiguration.buildDate());
+            healthCheckDTO.setProfileActive(appConfiguration.getProfileActive());
+            healthCheckDTO.setVersion(appConfiguration.getVersion());
+            healthCheckDTO.setBuildDate(appConfiguration.getBuildDate());
             healthCheckDTO.setPodName(InetAddress.getLocalHost().getHostName());
             healthCheckDTO.setHttpStatus(HttpStatus.OK);
         } catch (Exception ex) {

@@ -1,4 +1,4 @@
-package com.rest.base;
+package com.rest.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.rest.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rest.base.BaseResponse;
+import com.rest.dto.response.BaseResponse;
 import lombok.Getter;
 import lombok.Setter;
 

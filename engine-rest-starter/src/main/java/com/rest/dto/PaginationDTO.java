@@ -1,8 +1,8 @@
 package com.rest.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rest.base.BaseRequest;
 import com.rest.constant.Const;
+import com.rest.dto.request.BaseRequest;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;

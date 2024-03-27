@@ -1,9 +1,8 @@
-package com.rest.base;
+package com.rest.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rest.dto.ResponseStatusDTO;
 import com.rest.enums.ResponseStatus;
 import com.rest.utils.ValidateUtils;
 import lombok.Getter;
