@@ -31,6 +31,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
     public HealthCheckDTO getStatusSystem(boolean isDetail) {
         HealthCheckDTO healthCheckDTO = new HealthCheckDTO();
         try {
+            healthCheckDTO.setHttpStatus(HttpStatus.OK);
             healthCheckDTO.setService(Const.HEALTH_CHECK_SYSTEM);
             healthCheckDTO.setStatus(Const.RUNNING);
             healthCheckDTO.setRequestTime(new Date());
@@ -41,7 +42,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
             healthCheckDTO.setVersion(appConfiguration.getVersion());
             healthCheckDTO.setBuildDate(appConfiguration.getBuildDate());
             healthCheckDTO.setPodName(InetAddress.getLocalHost().getHostName());
-            healthCheckDTO.setHttpStatus(HttpStatus.OK);
+
         } catch (Exception ex) {
             log.error("getStatusSystem has error: ", ex);
             ResponseStatus.setServerError(healthCheckDTO);
