@@ -1,10 +1,14 @@
 package com.rest.entity;
 
 import jakarta.persistence.Entity;
-import lombok.Data;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
+@Table(name = "user")
 public class User extends BaseEntity {
 
     private String username;

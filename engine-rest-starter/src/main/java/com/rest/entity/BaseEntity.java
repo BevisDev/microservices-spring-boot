@@ -1,14 +1,16 @@
 package com.rest.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @MappedSuperclass
 public class BaseEntity {
 
@@ -19,7 +21,7 @@ public class BaseEntity {
     @CreationTimestamp
     @Temporal(TemporalType.DATE)
     @Column(updatable = false)
-    private Date createdDate;
+    private Date createDate;
 
     @CreationTimestamp
     @Column(updatable = false)

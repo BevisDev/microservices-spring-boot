@@ -8,7 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum Version {
-    V1(1), V2(2), V3(3), V4(4), V5(5);
+    VERSION_1(1),
+    VERSION_2(2),
+    VERSION_3(3),
+    VERSION_4(4),
+    VERSION_5(5),
+    ;
 
-    private int version;
+    private int value;
 }

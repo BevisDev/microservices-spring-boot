@@ -1,6 +1,7 @@
 package com.rest.service;
 
-import com.rest.dto.HealthCheckDTO;
+import com.rest.dto.response.BaseResponse;
+import com.rest.dto.response.HealthCheckDTO;
 
 public interface HealthCheckService {
 
@@ -10,11 +11,11 @@ public interface HealthCheckService {
      * @param isDetail want to get detail
      * @return result
      */
-    HealthCheckDTO getStatusSystem(boolean isDetail);
+    BaseResponse<HealthCheckDTO> getStatusSystem(boolean isDetail);
 
     /**
      * health check database
      */
-    HealthCheckDTO getStatusDatabase();
+    BaseResponse<HealthCheckDTO> getStatusDatabase();
 
 }

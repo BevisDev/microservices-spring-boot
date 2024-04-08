@@ -88,7 +88,7 @@
                 </resources>
             </build>
             <properties>
-                <activeProfile>dev</activeProfile>
+                <profileActive>dev</profileActive>
                 <logger.maxHistory>30</logger.maxHistory>
                 <packaging.type>war</packaging.type>
             </properties>
@@ -99,25 +99,6 @@
                     <optional>true</optional>
                 </dependency>
             </dependencies>
-        </profile>
-
-        <!-- Config profile sit -->
-        <profile>
-            <id>sit</id>
-            <build>
-                <finalName>engine-rest</finalName>
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
-            <properties>
-                <activeProfile>sit</activeProfile>
-                <logger.maxHistory>30</logger.maxHistory>
-                <packaging.type>war</packaging.type>
-            </properties>
         </profile>
 
         <!-- Config profile uat -->
@@ -133,7 +114,7 @@
                 </resources>
             </build>
             <properties>
-                <activeProfile>uat</activeProfile>
+                <profileActive>uat</profileActive>
                 <logger.maxHistory>90</logger.maxHistory>
                 <packaging.type>jar</packaging.type>
             </properties>
@@ -152,7 +133,7 @@
                 </resources>
             </build>
             <properties>
-                <activeProfile>prod</activeProfile>
+                <profileActive>prod</profileActive>
                 <logger.maxHistory>180</logger.maxHistory>
                 <packaging.type>jar</packaging.type>
             </properties>
