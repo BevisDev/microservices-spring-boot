@@ -45,7 +45,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
             response.setPayload(healthCheckDTO);
         } catch (Exception ex) {
             log.error("getStatusSystem has error: ", ex);
-            response.setServerError(response);
+            response.setServerError();
         }
         return response;
     }
@@ -64,7 +64,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
             }
         } catch (Exception ex) {
             log.error("getStatusDatabase has error: ", ex);
-            response.setServerError(response);
+            response.setServerError();
         }
         return response;
     }

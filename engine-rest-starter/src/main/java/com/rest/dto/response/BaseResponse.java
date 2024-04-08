@@ -28,28 +28,25 @@ public class BaseResponse<T> implements Serializable {
     private List<ErrorDTO> errors; // for many error
 
 
-    public void setServerError(BaseResponse response) {
-        ErrorDTO errorDTO = response.getError();
-        if (ValidateUtils.isNullOrEmpty(errorDTO)) {
-            errorDTO = new ErrorDTO();
-        }
-        errorDTO.setErrorCode(ErrorCode.SERVER_ERROR.getErrorCode());
-        errorDTO.setMessage(ErrorCode.SERVER_ERROR.getMessage());
+    public void setServerError() {
+        error = new ErrorDTO();
+        code = 500;
+        error.setErrorCode(ErrorCode.SERVER_ERROR.getErrorCode());
+        error.setMessage(ErrorCode.SERVER_ERROR.getMessage());
     }
 
-    public void setInvalidRequest(BaseResponse response) {
-        ErrorDTO errorDTO = response.getError();
-        if (ValidateUtils.isNullOrEmpty(errorDTO)) {
-            errorDTO = new ErrorDTO();
-        }
-        errorDTO.setErrorCode(ErrorCode.SERVER_ERROR.getErrorCode());
-        errorDTO.setMessage(ErrorCode.SERVER_ERROR.getMessage());
+    public void setInvalidRequest() {
+        error = new ErrorDTO();
+        code = 400;
+        error.setErrorCode(ErrorCode.SERVER_ERROR.getErrorCode());
+        error.setMessage(ErrorCode.SERVER_ERROR.getMessage());
     }
 
     public void setError(ErrorCode errorCode) {
         if (ValidateUtils.isNullOrEmpty(error)) {
             error = new ErrorDTO();
         }
+        code = 400;
         error.setErrorCode(errorCode.getErrorCode());
         error.setMessage(errorCode.getMessage());
     }
