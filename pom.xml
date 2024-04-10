@@ -14,8 +14,9 @@
     </description>
 
     <modules>
-        <module>camunda-starter</module>
-        <module>engine-rest-starter</module>
+        <module>base-service</module>
+        <module>camunda-service</module>
+        <module>notification-service</module>
     </modules>
 
 </project>
