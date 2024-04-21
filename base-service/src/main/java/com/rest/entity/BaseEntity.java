@@ -18,10 +18,16 @@ public class BaseEntity {
     @UuidGenerator
     private String id;
 
+    @Column(columnDefinition = "varchar(50) default 'admin'")
+    private String createdBy;
+
+    @Column(columnDefinition = "varchar(50) default 'admin'")
+    private String updateBy;
+
     @CreationTimestamp
     @Temporal(TemporalType.DATE)
     @Column(updatable = false)
-    private Date createDate;
+    private Date transactionDate;
 
     @CreationTimestamp
     @Column(updatable = false)

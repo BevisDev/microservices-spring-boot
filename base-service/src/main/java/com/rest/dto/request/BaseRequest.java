@@ -24,7 +24,7 @@ public class BaseRequest implements Serializable {
 
     private String requestId;
     private Date requestTime;
-    private PayloadRequestDTO payload;
+    private String createdBy;
 
     public BaseRequest() {
         if (StringUtils.isEmpty(requestId)) {
