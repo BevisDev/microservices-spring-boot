@@ -13,7 +13,8 @@
     </description>
 
     <modules>
-        <module>base-service</module>
+        <module>gateway-service</module>
+        <module>core-service</module>
         <module>camunda-service</module>
         <module>notification-service</module>
     </modules>
@@ -27,6 +28,8 @@
     </parent>
 
     <properties>
+        <!-- other version -->
+        <commons.lang3.version>3.12.0</commons.lang3.version>
         <!-- java version -->
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
@@ -37,6 +40,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
