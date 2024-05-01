@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.programing.java</groupId>
+        <groupId>com.bevis</groupId>
         <artifactId>microservices-spring-boot</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.camunda</groupId>
+    <groupId>com.bevis.camunda</groupId>
     <artifactId>camunda-service</artifactId>
     <version>1.0.0</version>
     <name>Camunda Service</name>
@@ -19,7 +19,7 @@
 
     <properties>
         <!-- zeebe version -->
-        <zeebe.version>8.4.2</zeebe.version>
+        <zeebe.version>8.5.0</zeebe.version>
     </properties>
 
     <dependencies>
@@ -31,8 +31,8 @@
         </dependency>
 
         <dependency>
-            <groupId>io.camunda</groupId>
-            <artifactId>spring-zeebe-starter</artifactId>
+            <groupId>io.camunda.spring</groupId>
+            <artifactId>spring-boot-starter-camunda</artifactId>
             <version>${zeebe.version}</version>
         </dependency>
 

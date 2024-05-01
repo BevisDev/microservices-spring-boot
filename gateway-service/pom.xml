@@ -4,16 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.programing.java</groupId>
+        <groupId>com.bevis</groupId>
         <artifactId>microservices-spring-boot</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.gw</groupId>
+    <groupId>com.bevis.gateway</groupId>
     <artifactId>gateway-service</artifactId>
     <version>1.0.0</version>
     <name>Gateway Service</name>
-    <packaging>${packaging.type}</packaging>
     <description>
         Gateway Service
     </description>
@@ -45,7 +44,6 @@
             <properties>
                 <profile.active>dev</profile.active>
                 <logger.maxHistory>30</logger.maxHistory>
-                <packaging.type>war</packaging.type>
             </properties>
             <dependencies>
                 <dependency>
@@ -71,7 +69,6 @@
             <properties>
                 <profileActive>uat</profileActive>
                 <logger.maxHistory>90</logger.maxHistory>
-                <packaging.type>jar</packaging.type>
             </properties>
         </profile>
 
@@ -90,7 +87,6 @@
             <properties>
                 <profileActive>prod</profileActive>
                 <logger.maxHistory>180</logger.maxHistory>
-                <packaging.type>jar</packaging.type>
             </properties>
         </profile>
     </profiles>

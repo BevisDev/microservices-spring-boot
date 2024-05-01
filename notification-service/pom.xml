@@ -3,19 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.notification</groupId>
+    <parent>
+        <groupId>com.bevis</groupId>
+        <artifactId>microservices-spring-boot</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.bevis.notification</groupId>
     <artifactId>notification-service</artifactId>
     <version>1.0.0</version>
     <name>Notification Service</name>
     <description>
         Notification Service
     </description>
-
-    <parent>
-        <groupId>com.programing.java</groupId>
-        <artifactId>microservices-spring-boot</artifactId>
-        <version>1.0.0</version>
-    </parent>
 
     <dependencies>
 
