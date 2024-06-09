@@ -1,10 +1,10 @@
-package com.bevis.camunda;
+package com.bevis.identity;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CamundaApplicationTests {
+class IdentityServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

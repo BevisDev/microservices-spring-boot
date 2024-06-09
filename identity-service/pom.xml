@@ -3,33 +3,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bevis</groupId>
-    <artifactId>microservices-spring-boot</artifactId>
-    <version>1.0.0</version>
-    <name>Microservices Spring Boot</name>
-    <packaging>pom</packaging>
-    <description>
-        Microservices Spring Boot
-    </description>
-
-    <modules>
-        <module>gateway-service</module>
-        <module>core-service</module>
-        <module>camunda-service</module>
-        <module>notification-service</module>
-    </modules>
-
-    <!-- version Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.3</version>
+        <version>3.3.0</version>
         <relativePath/>
     </parent>
+
+    <groupId>com.bevis.camunda</groupId>
+    <artifactId>camunda-service</artifactId>
+    <version>1.0.0</version>
+    <name>Camunda Service</name>
+    <description>
+        Camunda Service
+    </description>
 
     <properties>
         <!-- other version -->
         <commons.lang3.version>3.12.0</commons.lang3.version>
+
         <!-- java version -->
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
@@ -40,15 +32,11 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons.lang3.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
@@ -59,9 +47,15 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -78,10 +72,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
+
 </project>

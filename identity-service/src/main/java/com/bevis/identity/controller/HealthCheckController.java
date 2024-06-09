@@ -1,4 +1,4 @@
-package com.bevis.camunda;
+package com.bevis.identity.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
