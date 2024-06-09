@@ -10,16 +10,15 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.bevis.camunda</groupId>
-    <artifactId>camunda-service</artifactId>
+    <groupId>com.bevis.identity</groupId>
+    <artifactId>identity-service</artifactId>
     <version>1.0.0</version>
-    <name>Camunda Service</name>
+    <name>Identity Service</name>
     <description>
-        Camunda Service
+        Identity Service
     </description>
 
     <properties>
-        <!-- other version -->
         <commons.lang3.version>3.12.0</commons.lang3.version>
 
         <!-- java version -->
