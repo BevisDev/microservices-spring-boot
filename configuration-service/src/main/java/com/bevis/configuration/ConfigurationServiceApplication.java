@@ -1,13 +1,13 @@
-package com.bevis.gateway;
+package com.bevis.configuration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GatewayApplication {
+public class ConfigurationServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+        SpringApplication.run(ConfigurationServiceApplication.class, args);
     }
 
 }
