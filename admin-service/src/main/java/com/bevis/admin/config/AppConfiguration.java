@@ -1,28 +1,31 @@
 package com.bevis.admin.config;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 @Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class AppConfiguration {
 
     @Value("${profile.active}")
-    private String profileActive;
+    String profileActive;
 
     @Value("${app.name}")
-    private String appName;
+    String appName;
 
     @Value("${app.version}")
-    private String appVersion;
+    String appVersion;
 
     @Value("${build.date}")
-    private String buildDate;
+    String buildDate;
 
     @Value("${restTemplate.connectTimeout}")
-    private int restTemplateConnectTimeout;
+    int restTemplateConnectTimeout;
 
     @Value("${restTemplate.readTimeout}")
-    private int restTemplateReadTimeout;
+    int restTemplateReadTimeout;
 }

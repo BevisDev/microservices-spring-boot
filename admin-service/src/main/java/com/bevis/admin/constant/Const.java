@@ -1,7 +1,6 @@
 package com.bevis.admin.constant;
 
 public final class Const {
-    // ================== DEFINE STRING CONSTANT ================== //
 
     // =========================================================== //
     // ------------------ Character symbol
