@@ -1,27 +1,31 @@
 package com.bevis.admin.controller;
 
-import com.bevis.admin.constant.ApiConst;
-import com.bevis.admin.dto.response.HealthCheckDTO;
-import com.bevis.admin.service.IHealthCheckService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bevis.admin.constant.ApiConst;
+import com.bevis.admin.dto.response.HealthCheckResp;
+import com.bevis.admin.service.IHealthCheckService;
+
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
 @RestController
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class HealCheckController {
 
-    @Autowired
-    private IHealthCheckService healthCheckService;
+    IHealthCheckService _healthCheckService;
 
     @GetMapping(value = ApiConst.HEALTH_CHECK_PATH)
-    public HealthCheckDTO getStatusSystem(
-            @RequestParam(value = "isDetail", required = false) boolean isDetail) {
-        return healthCheckService.getStatusSystem(isDetail);
+    public HealthCheckResp getStatusSystem(@RequestParam(value = "isDetail", required = false) boolean isDetail) {
+        return _healthCheckService.getStatusSystem(isDetail);
     }
 
     @GetMapping(value = ApiConst.HEALTH_CHECK_DATABASE_PATH)
-    public HealthCheckDTO getStatusDatabase() {
-        return healthCheckService.getStatusDatabase();
+    public HealthCheckResp getStatusDatabase() {
+        return _healthCheckService.getStatusDatabase();
     }
 }

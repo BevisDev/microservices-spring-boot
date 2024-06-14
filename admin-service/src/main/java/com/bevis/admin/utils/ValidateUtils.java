@@ -1,11 +1,11 @@
 package com.bevis.admin.utils;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class ValidateUtils {
 
@@ -76,5 +76,4 @@ public class ValidateUtils {
     public static boolean isValidLengthStr(String str, int length) {
         return StringUtils.isNotEmpty(str) && str.length() <= length;
     }
-
 }

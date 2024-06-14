@@ -1,34 +1,48 @@
 package com.bevis.admin.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @MappedSuperclass
-public class BaseEntity {
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public abstract class BaseEntity implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 596960242602342438L;
 
     @Id
     @UuidGenerator
-    private String id;
+    String id;
+
+    @Column(columnDefinition = "VARCHAR(50)")
+    String createdBy;
+
+    @Column(columnDefinition = "VARCHAR(50)")
+    String updatedBy;
 
     @CreationTimestamp
     @Temporal(TemporalType.DATE)
     @Column(updatable = false)
-    private Date transactionDate;
-    
+    Date transactionDate;
+
     @CreationTimestamp
     @Column(updatable = false)
-    private Date createdDateTime;
+    Date createdDateTime;
 
     @UpdateTimestamp
     @Column(insertable = false)
-    private Date updatedDateTime;
+    Date updatedDateTime;
 
 }

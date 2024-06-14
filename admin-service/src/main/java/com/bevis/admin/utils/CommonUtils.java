@@ -13,6 +13,4 @@ public class CommonUtils {
     public static String randomUUID() {
         return UUID.randomUUID().toString();
     }
-
 }
-

@@ -1,11 +1,14 @@
 package com.bevis.admin.enums;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @AllArgsConstructor
-public enum ResponseCode {
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+public enum ErrorCode {
     // =========================================================== //
     // ------------------ API Gateway Reject Code 4xx
     // =========================================================== //
@@ -15,9 +18,6 @@ public enum ResponseCode {
     REJECT_INVALID_CREDENTIALS("RJ1003", "Security credentials is incorrect."),
     REJECT_NOT_AUTHORIZED_ACCESS("RJ1004", "User is not authorized to access this API."),
     REJECT_INVALID_API_KEY("RJ1005", "Invalid API Key."),
-    
-    // API Code 3xx -- Direction
-    NOT_MODIFIED("D1000", "Not Modified."),
 
     // API Code 4xx -- Client error
     INVALID_REQUEST("C1000", "Invalid Request."),
@@ -29,8 +29,6 @@ public enum ResponseCode {
     SERVER_TIMEOUT("A1002", "Server gateway is timed out"),
     ;
 
-    private String code;
-    private String message;
-
-
+    String code;
+    String message;
 }

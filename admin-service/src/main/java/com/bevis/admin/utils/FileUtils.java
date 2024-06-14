@@ -23,24 +23,11 @@ public class FileUtils {
         return StringUtils.replace(pathName, "%", File.separator);
     }
 
-    /**
-     * find extension of fileName
-     *
-     * @param fileName file name
-     * @return extension
-     */
     public static String getExtension(String fileName) {
         int index = StringUtils.lastIndexOf(fileName, ".");
-        String extension = StringUtils.substring(fileName, index + 1);
-        return extension;
+        return StringUtils.substring(fileName, index + 1);
     }
 
-    /**
-     * create directories
-     *
-     * @param path path
-     * @return directories created
-     */
     public static void createDirectories(String path) throws IOException {
         Path dir = Paths.get(path);
         if (!Files.exists(dir)) {
@@ -58,5 +45,4 @@ public class FileUtils {
     public static void uploadFile(InputStream inputStream, Path desFile) throws IOException {
         Files.copy(inputStream, desFile, StandardCopyOption.REPLACE_EXISTING);
     }
-
 }

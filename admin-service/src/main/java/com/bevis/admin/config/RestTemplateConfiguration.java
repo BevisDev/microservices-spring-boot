@@ -1,14 +1,15 @@
 package com.bevis.admin.config;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
+import java.time.Duration;
+
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.Duration;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @Configuration
 @RequiredArgsConstructor
@@ -24,5 +25,4 @@ public class RestTemplateConfiguration {
                 .setReadTimeout(Duration.ofMillis(appConfiguration.getRestTemplateReadTimeout()))
                 .build();
     }
-
 }

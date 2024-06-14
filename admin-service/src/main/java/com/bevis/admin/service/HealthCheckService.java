@@ -1,68 +1,69 @@
 package com.bevis.admin.service;
 
-import com.bevis.admin.config.AppConfiguration;
-import com.bevis.admin.constant.Const;
-import com.bevis.admin.dto.response.HealthCheckDTO;
-import com.bevis.admin.utils.ValidateUtils;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.net.InetAddress;
 import java.util.Date;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+
+import org.springframework.stereotype.Service;
+
+import com.bevis.admin.config.AppConfiguration;
+import com.bevis.admin.constant.Const;
+import com.bevis.admin.dto.response.HealthCheckResp;
+import com.bevis.admin.utils.ValidateUtils;
+
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
+
 @Service
 @Slf4j
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class HealthCheckService implements IHealthCheckService {
 
-    @Autowired
-    private AppConfiguration appConfiguration;
+    AppConfiguration _appConfiguration;
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public HealthCheckDTO getStatusSystem(boolean isDetail) {
-        HealthCheckDTO healthCheckDTO = new HealthCheckDTO();
-        healthCheckDTO.setService(Const.HEALTH_CHECK_SYSTEM);
-        healthCheckDTO.setStatus(Const.RUNNING);
-        healthCheckDTO.setRequestTime(new Date());
+    public HealthCheckResp getStatusSystem(boolean isDetail) {
+        HealthCheckResp healthCheckResp = new HealthCheckResp();
+        healthCheckResp.setService(Const.HEALTH_CHECK_SYSTEM);
+        healthCheckResp.setStatus(Const.RUNNING);
+        healthCheckResp.setRequestTime(new Date());
         if (!isDetail) {
-            return healthCheckDTO;
+            return healthCheckResp;
         }
-        healthCheckDTO.setProfileActive(appConfiguration.getProfileActive());
-        healthCheckDTO.setAppName(appConfiguration.getAppName());
-        healthCheckDTO.setAppVersion(appConfiguration.getAppVersion());
-        healthCheckDTO.setBuildDate(appConfiguration.getBuildDate());
+        healthCheckResp.setProfileActive(_appConfiguration.getProfileActive());
+        healthCheckResp.setAppName(_appConfiguration.getAppName());
+        healthCheckResp.setAppVersion(_appConfiguration.getAppVersion());
+        healthCheckResp.setBuildDate(_appConfiguration.getBuildDate());
         try {
-            healthCheckDTO.setPodName(InetAddress.getLocalHost().getHostName());
+            healthCheckResp.setPodName(InetAddress.getLocalHost().getHostName());
         } catch (Exception e) {
             log.error("cannot get hostname: ", e);
         }
-        healthCheckDTO.setSuccess(true);
-        return healthCheckDTO;
+        return healthCheckResp;
     }
 
     @Override
-    public HealthCheckDTO getStatusDatabase() {
-        HealthCheckDTO healthCheckDTO = new HealthCheckDTO();
+    public HealthCheckResp getStatusDatabase() {
+        HealthCheckResp healthCheckResp = new HealthCheckResp();
         try {
-            healthCheckDTO.setService(Const.HEALTH_CHECK_MYSQL_DATABASE);
-            healthCheckDTO.setRequestTime(new Date());
+            healthCheckResp.setService(Const.HEALTH_CHECK_MYSQL_DATABASE);
+            healthCheckResp.setRequestTime(new Date());
             Query query = entityManager.createQuery("SELECT 1");
             if (ValidateUtils.isNotNullOrEmpty(query.getSingleResult())) {
-                healthCheckDTO.setSuccess(true);
-                healthCheckDTO.setStatus(Const.RUNNING);
-            } else {
-                healthCheckDTO.setSuccess(false);
+                healthCheckResp.setStatus(Const.RUNNING);
             }
         } catch (Exception ex) {
             log.error("getStatusDatabase has error: ", ex);
-            healthCheckDTO.setServerError();
         }
-        return healthCheckDTO;
+        return healthCheckResp;
     }
 }

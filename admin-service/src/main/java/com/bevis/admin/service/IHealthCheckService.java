@@ -1,6 +1,6 @@
 package com.bevis.admin.service;
 
-import com.bevis.admin.dto.response.HealthCheckDTO;
+import com.bevis.admin.dto.response.HealthCheckResp;
 
 public interface IHealthCheckService {
 
@@ -10,7 +10,7 @@ public interface IHealthCheckService {
      * @param isDetail want to get detail
      * @return result
      */
-    HealthCheckDTO getStatusSystem(boolean isDetail);
+    HealthCheckResp getStatusSystem(boolean isDetail);
 
-    HealthCheckDTO getStatusDatabase();
+    HealthCheckResp getStatusDatabase();
 }

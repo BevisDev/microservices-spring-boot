@@ -13,7 +13,6 @@ public final class Const {
     public static final String DOT = ".";
     public static final String SEMI_COLON = ";";
 
-
     // =========================================================== //
     // ------------------ Constant Name
     // =========================================================== //
@@ -36,5 +35,4 @@ public final class Const {
     public static final String TEXT_PLAIN = "text/plain";
     public static final String TEXT_HTML = "text/html";
     public static final String UTF8 = "UTF-8";
-
 }

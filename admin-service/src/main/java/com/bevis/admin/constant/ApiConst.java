@@ -10,6 +10,4 @@ public final class ApiConst {
     public static final String DELETE = "/delete";
     public static final String HEALTH_CHECK_PATH = "/health-check";
     public static final String HEALTH_CHECK_DATABASE_PATH = "/health-check-database";
-
 }
-

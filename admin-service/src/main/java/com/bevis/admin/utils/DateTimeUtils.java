@@ -32,28 +32,13 @@ public class DateTimeUtils {
     public static final String YYYYMMDD = "yyyyMMdd";
     public static final String HH_MM = "HH:mm";
 
-    /**
-     * convert string to date
-     *
-     * @param str     input
-     * @param pattern pattern of parse
-     * @return date
-     */
-    public static Date convertToDate(String str, String pattern) throws ParseException {
+    public static Date convertStringToDate(String str, String pattern) throws ParseException {
         DateFormat formatter = new SimpleDateFormat(pattern);
         return formatter.parse(str);
     }
 
-    /**
-     * convert date to string
-     *
-     * @param date    input
-     * @param pattern pattern date
-     * @return
-     */
-    public static String convertToString(Date date, String pattern) {
+    public static String convertDateToString(Date date, String pattern) {
         DateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.format(date);
     }
-
 }

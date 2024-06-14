@@ -1,10 +1,11 @@
 package com.bevis.admin.utils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang3.StringUtils;
 
 public class JsonUtils {
 
@@ -59,5 +60,4 @@ public class JsonUtils {
         String var2 = toJSON(obj2);
         return StringUtils.equals(var1, var2);
     }
-
 }

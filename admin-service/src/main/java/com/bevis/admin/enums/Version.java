@@ -1,12 +1,15 @@
 package com.bevis.admin.enums;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public enum Version {
     VERSION_1(1),
     VERSION_2(2),
@@ -15,5 +18,5 @@ public enum Version {
     VERSION_5(5),
     ;
 
-    private int value;
+    int value;
 }
