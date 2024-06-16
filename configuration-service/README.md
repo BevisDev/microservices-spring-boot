@@ -1,28 +1,28 @@
-# Example Base Service
+# Configuration Service
 
-> This repository using Java forms framework, utils, commons base
-### Pom.xml
+This repository is responsible for:
+* Get configuration for multiple module
 
-* `Spring Boot 3.2.0`
-* `java 17`
-* `lombok`
-* `jwt 4.4.0`
-* `opencsv 5.7.1`
-* `commons-lang3 3.12.0`
-* `commons-codec 1.15`
-* `commons-io 2.13`
-* `spring-cloud-azure-starter-storage 5.7.0`
-<hr>
+## Build the application
+You can build the project and run the tests by running
+```shell
+mvn clean package
+```
 
-### Step was built
+Or you can build without running unit tests
+```shell 
+mvn clean package -Dmaven.test.skip=true
+```
 
-* `1` Created Controller + Constant + DTO + Enum + Utils `branch: create_common`
-* `2` Write some service
-* `3` Define Error Code
-* `4` Define Utils.
-* `5` Separate 3 environment (dev, uat, prod)
-* `6` Define Logback.xml
-* `7` Filter Internal + External + 3Party Request Response
-* `8` Custom Rest Template
-* `9` Filter Log Rest Template
+## Start application
+```shell
+mvn spring-boot:run
+```
 
+## Get configuration each module
+```
+http://localhost:8888/{application}/{profile}
+```
+### note
+* application: name of module
+* profile: profile running of module
