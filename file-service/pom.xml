@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bevis.fileservice</groupId>
+    <artifactId>file-service</artifactId>
+    <version>1.0.0</version>
+    <name>File Service</name>
+    <description>
+        File Service
+    </description>
+
+    <parent>
+        <groupId>com.bevis</groupId>
+        <artifactId>ebevisdev</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <properties>
+        <!-- lib .pdf -->
+        <pdfbox.version>3.0.2</pdfbox.version>
+        <!-- lib .csv !-->
+        <commons-csv.version>1.11.0</commons-csv.version>
+        <!-- lib .xls, .doc, .ppt !-->
+        <poi.version>5.2.5</poi.version>
+        <!-- lib .xlsx, .docx, .pptx !-->
+        <poi.ooxml.version>5.2.5</poi.ooxml.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.ooxml.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>${commons-csv.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>${pdfbox.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>
