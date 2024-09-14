@@ -1,4 +1,4 @@
-package com.bevis.adminservice.utils;
+package com.bevis.masterservice.utils;
 
 import java.util.UUID;
 

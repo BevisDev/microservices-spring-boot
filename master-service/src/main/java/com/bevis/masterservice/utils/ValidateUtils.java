@@ -3,6 +3,7 @@ package com.bevis.masterservice.utils;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class ValidateUtils {
 
@@ -18,33 +19,23 @@ public class ValidateUtils {
         }
 
         if (object instanceof String) {
-            if (((String) object).isEmpty()) {
-                return true;
-            }
+            return ((String) object).isEmpty();
         }
 
         if (object instanceof List<?>) {
-            if (((List<?>) object).isEmpty()) {
-                return true;
-            }
+            return ((List<?>) object).isEmpty();
         }
 
         if (object instanceof Set<?>) {
-            if (((Set<?>) object).isEmpty()) {
-                return true;
-            }
+            return ((Set<?>) object).isEmpty();
         }
 
         if (object instanceof Map<?, ?>) {
-            if (((Map<?, ?>) object).isEmpty()) {
-                return true;
-            }
+            return ((Map<?, ?>) object).isEmpty();
         }
 
         if (object instanceof String[]) {
-            if (((String[]) object).length == 0) {
-                return true;
-            }
+            return ((String[]) object).length == 0;
         }
 
         return false;
@@ -53,4 +44,21 @@ public class ValidateUtils {
     public static <T> boolean isNotNullOrEmpty(T object) {
         return !isNullOrEmpty(object);
     }
+
+    /**
+     * validate length of string
+     *
+     * @param str    from request
+     * @param length length of string
+     * @return result validation
+     */
+    public static boolean isValidLengthStr(String str, int length) {
+        return isNotNullOrEmpty(str) && str.length() <= length;
+    }
+
+    public static boolean isValidPattern(String str, String patternStr) {
+        Pattern pattern = Pattern.compile(patternStr);
+        return pattern.matcher(str).matches();
+    }
+
 }

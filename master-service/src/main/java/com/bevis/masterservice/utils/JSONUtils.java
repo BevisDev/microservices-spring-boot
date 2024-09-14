@@ -1,4 +1,4 @@
-package com.bevis.adminservice.utils;
+package com.bevis.masterservice.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonUtils {
+public class JSONUtils {
 
     /**
      * JSON to Class

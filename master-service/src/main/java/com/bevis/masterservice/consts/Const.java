@@ -1,4 +1,4 @@
-package com.bevis.adminservice.constant;
+package com.bevis.masterservice.consts;
 
 public final class Const {
 

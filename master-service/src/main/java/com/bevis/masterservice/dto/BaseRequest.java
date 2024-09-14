@@ -1,5 +1,7 @@
-package com.bevis.adminservice.dto.request;
+package com.bevis.masterservice.dto;
 
+import com.bevis.masterservice.utils.CommonUtils;
+import com.bevis.masterservice.utils.ValidateUtils;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;
@@ -11,20 +13,28 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class ApiFilter implements Serializable {
+@FieldDefaults(level = AccessLevel.PROTECTED)
+public class BaseRequest implements Serializable {
     @Serial
-    private static final long serialVersionUID = 3122949941812274044L;
+    private static final long serialVersionUID = 2905646205909847233L;
 
-    int page;
-    int size;
-    String sort;
-    String search;
+    String requestId;
+    Date requestAt;
+
+    public BaseRequest() {
+        if (ValidateUtils.isNullOrEmpty(requestId)) {
+            this.requestId = CommonUtils.randomUUID();
+        }
+        if (ValidateUtils.isNullOrEmpty(requestAt)) {
+            this.requestAt = new Date();
+        }
+    }
 
     @Override
     public String toString() {

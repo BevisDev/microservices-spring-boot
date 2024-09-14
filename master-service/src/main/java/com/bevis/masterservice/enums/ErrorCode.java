@@ -1,4 +1,4 @@
-package com.bevis.adminservice.enums;
+package com.bevis.masterservice.enums;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
