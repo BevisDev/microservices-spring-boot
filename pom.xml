@@ -26,6 +26,7 @@
         <module>identity-service</module>
         <module>gateway-service</module>
         <module>notification-service</module>
+        <module>shared-service</module>
     </modules>
 
     <properties>

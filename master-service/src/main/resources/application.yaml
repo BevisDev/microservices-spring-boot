@@ -1,0 +1,11 @@
+#=========================================
+#========    Spring Boot Configuration
+#==============-==========================
+app:
+  name: "@project.name@"
+  version: "@project.version@"
+build.date: "@maven.build.timestamp@"
+restTemplate:
+  connectTimeout: 5000
+  readTimeout: 5000
+spring.jackson.time-zone: Asia/Ho_Chi_Minh
