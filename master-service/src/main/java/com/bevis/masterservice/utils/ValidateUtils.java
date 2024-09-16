@@ -56,9 +56,15 @@ public class ValidateUtils {
         return isNotNullOrEmpty(str) && str.length() <= length;
     }
 
+    /**
+     * validate pattern of string
+     *
+     * @param str        from request
+     * @param patternStr pattern validation
+     * @return result validation
+     */
     public static boolean isValidPattern(String str, String patternStr) {
         Pattern pattern = Pattern.compile(patternStr);
         return pattern.matcher(str).matches();
     }
-
 }

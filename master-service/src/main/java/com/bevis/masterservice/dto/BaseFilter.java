@@ -1,15 +1,16 @@
 package com.bevis.masterservice.dto;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 import com.bevis.masterservice.consts.Const;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-
-import java.io.Serial;
-import java.io.Serializable;
 
 @Getter
 @Setter
