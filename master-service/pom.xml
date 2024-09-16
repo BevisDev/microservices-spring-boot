@@ -8,9 +8,7 @@
     <artifactId>master-service</artifactId>
     <version>1.0.0</version>
     <name>Master Service</name>
-    <description>
-        Master Service
-    </description>
+    <description>Master Service</description>
 
     <parent>
         <groupId>com.bevis</groupId>
@@ -23,7 +21,10 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
