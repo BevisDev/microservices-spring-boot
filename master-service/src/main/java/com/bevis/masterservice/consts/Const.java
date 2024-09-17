@@ -16,11 +16,13 @@ public final class Const {
     // =========================================================== //
     // ------------------ Constant Name
     // =========================================================== //
-    public static final String RUNNING = "Running";
     public static final String DESC_SORT = "DESC";
     public static final String ASC_SORT = "ASC";
     public static final String HEALTH_CHECK_SYSTEM = "Health Check System";
-    public static final String HEALTH_CHECK_MYSQL_DATABASE = "Health Check MySQL Database";
+    public static final String HEALTH_CHECK_MS_SQL = "Health Check MS SQL";
+    public static final String HEALTH_CHECK_MYSQL = "Health Check MySQL";
+    public static final String HEALTH_CHECK_POSTGRESQL = "Health Check PostgreSQL";
+    public static final String HEALTH_CHECK_ORACLE = "Health Check Oracle";
 
     // =========================================================== //
     // ------------------ DEFINE HEADER CONSTANT

@@ -1,6 +1,19 @@
 #=========================================
 #========    Spring Boot Configuration
 #==============-==========================
+server:
+  port: 8082
+  servlet:
+    context-path: /web
+healthcheck:
+  application:
+    name: @project.name@
+    version: @project.version@
+    buildTime: @maven.build.timestamp@
+restTemplate:
+  connectTimeout: 5000
+  readTimeout: 5000
+
 spring.jackson.time-zone: Asia/Ho_Chi_Minh
 
 spring.datasource:
@@ -11,5 +24,3 @@ spring.datasource:
 
 spring.jpa:
   hibernate.ddl-auto: update # <create | create-drop | update | validate | none>
-server:
-  port: 8888

@@ -20,8 +20,8 @@
 
     <modules>
         <module>master-service</module>
-        <!-- <module>admin-service</module>
-        <module>file-service</module>
+        <module>admin-service</module>
+        <!-- <module>file-service</module>
         <module>identity-service</module>
         <module>gateway-service</module> -->
         <module>notification-service</module>
