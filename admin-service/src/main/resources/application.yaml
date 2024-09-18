@@ -5,11 +5,13 @@ server:
   port: 8082
   servlet:
     context-path: /web
+
 healthcheck:
   application:
     name: @project.name@
     version: @project.version@
     buildTime: @maven.build.timestamp@
+
 restTemplate:
   connectTimeout: 5000
   readTimeout: 5000

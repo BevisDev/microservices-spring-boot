@@ -1,7 +1,16 @@
 #=========================================
 #========    Spring Boot Configuration
 #==============-==========================
+server:
+  port: 8888
+
 spring.jackson.time-zone: Asia/Ho_Chi_Minh
+
+healthcheck:
+  application:
+    name: @project.name@
+    version: @project.version@
+    buildTime: @maven.build.timestamp@
 
 spring.datasource:
   url: jdbc:mysql://localhost:3306/mydatabase
@@ -10,6 +19,5 @@ spring.datasource:
   driver-class-name: com.mysql.cj.jdbc.Driver
 
 spring.jpa:
-  hibernate.ddl-auto: update # <create | create-drop | update | validate | none>
-server:
-  port: 8888
+  hibernate.ddl-auto: none # <create | create-drop | update | validate | none>
+

@@ -1,8 +1,13 @@
 package com.bevis.masterservice.service.healthcheck;
 
-import com.bevis.masterservice.dto.BaseResponse;
-import com.bevis.masterservice.dto.HealthCheckResp;
+import com.bevis.masterservice.dto.api.ApiResponse;
+import com.bevis.masterservice.dto.healthcheck.HealthCheckResp;
 
 public interface HealthCheckService {
-    BaseResponse<HealthCheckResp> getStatusSystem();
+    /**
+     * Get status system internal
+     *
+     * @return health check system
+     */
+    ApiResponse<HealthCheckResp> getStatusSystem();
 }

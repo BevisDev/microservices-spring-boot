@@ -1,4 +1,4 @@
-package com.bevis.masterservice.dto;
+package com.bevis.masterservice.dto.healthcheck;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -8,7 +8,6 @@ import lombok.experimental.FieldDefaults;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -23,5 +22,5 @@ public class HealthCheckResp implements Serializable {
     String buildTime;
     String service;
     String status;
-    Date requestTime;
+
 }

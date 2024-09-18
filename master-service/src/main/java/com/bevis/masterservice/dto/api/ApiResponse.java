@@ -1,4 +1,4 @@
-package com.bevis.masterservice.dto;
+package com.bevis.masterservice.dto.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -13,21 +13,24 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BaseResponse<T> implements Serializable {
+public class ApiResponse<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = -5952913922941280904L;
 
+    @Builder.Default
     boolean success = true;
-    T data;
-    String requestId;
-    Date responseAt;
-    List<Error> errors;
 
-    public BaseResponse(T data) {
-        this.data = data;
-    }
+    T data;
+
+    String requestId;
+
+    @Builder.Default
+    Date responseAt = new Date();
+
+    List<Error> errors;
 
     public static class Error {
         String errorCode;
