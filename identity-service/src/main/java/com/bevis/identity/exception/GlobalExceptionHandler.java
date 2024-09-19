@@ -1,9 +1,5 @@
 package com.bevis.identity.exception;
 
-import com.bevis.identity.dto.api.ApiResponse;
-import com.bevis.identity.enums.ErrorCode;
-import com.bevis.identity.utils.ValidateUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -14,6 +10,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
+
+import com.bevis.identity.dto.api.ApiResponse;
+import com.bevis.identity.enums.ErrorCode;
+import com.bevis.identity.utils.ValidateUtils;
+
+import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
 @Slf4j
@@ -46,10 +48,10 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(
             value = {
-                    MissingServletRequestParameterException.class,
-                    HttpMessageNotReadableException.class,
-                    IllegalArgumentException.class,
-                    MethodArgumentTypeMismatchException.class
+                MissingServletRequestParameterException.class,
+                HttpMessageNotReadableException.class,
+                IllegalArgumentException.class,
+                MethodArgumentTypeMismatchException.class
             })
     public ResponseEntity<?> handleInvalidRequest(Exception exception) {
         log.error("error invalid request: ", exception);

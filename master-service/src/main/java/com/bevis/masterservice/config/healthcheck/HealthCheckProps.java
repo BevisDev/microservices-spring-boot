@@ -1,14 +1,15 @@
 package com.bevis.masterservice.config.healthcheck;
 
+import java.io.Serial;
+import java.io.Serializable;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-import java.io.Serial;
-import java.io.Serializable;
 
 @Getter
 @Setter

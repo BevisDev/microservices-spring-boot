@@ -47,5 +47,4 @@ public class ValidateUtils {
     public static <T> boolean isNotNullOrEmpty(T object) {
         return !isNullOrEmpty(object);
     }
-
 }

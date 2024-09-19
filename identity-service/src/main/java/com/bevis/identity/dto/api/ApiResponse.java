@@ -1,15 +1,17 @@
 package com.bevis.identity.dto.api;
 
-import com.bevis.identity.enums.ErrorCode;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import java.io.Serial;
+import java.io.Serializable;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import java.io.Serial;
-import java.io.Serializable;
+import com.bevis.identity.enums.ErrorCode;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
@@ -25,6 +27,7 @@ public class ApiResponse<T> implements Serializable {
 
     @Builder.Default
     boolean success = true;
+
     ErrorDTO error;
     T result;
 

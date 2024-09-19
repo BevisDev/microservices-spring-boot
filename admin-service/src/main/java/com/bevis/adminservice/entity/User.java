@@ -1,8 +1,9 @@
 package com.bevis.adminservice.entity;
 
-import com.bevis.masterservice.entity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
+import com.bevis.masterservice.entity.BaseEntity;
 
 import lombok.AccessLevel;
 import lombok.Getter;

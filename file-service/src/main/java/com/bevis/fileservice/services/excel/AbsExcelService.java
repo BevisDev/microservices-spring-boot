@@ -1,10 +1,10 @@
 package com.bevis.fileservice.services.excel;
 
-import com.bevis.fileservice.consts.Const;
-import com.bevis.fileservice.dtos.commons.FileExportParam;
-import com.bevis.fileservice.enums.Extension;
-import com.bevis.fileservice.utils.ValidateUtils;
-import lombok.extern.slf4j.Slf4j;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Field;
+import java.util.List;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -13,10 +13,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Field;
-import java.util.List;
+import com.bevis.fileservice.consts.Const;
+import com.bevis.fileservice.dtos.commons.FileExportParam;
+import com.bevis.fileservice.enums.Extension;
+import com.bevis.fileservice.utils.ValidateUtils;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AbsExcelService implements IExcelService {
@@ -48,14 +50,14 @@ public abstract class AbsExcelService implements IExcelService {
         font.setFontName(Const.TIMES_NEW_ROMAN_FONT);
         font.setBold(true);
         font.setFontHeightInPoints((short) 12); // font size
-//        font.setColor(IndexedColors.WHITE.getIndex()); // text color
+        //        font.setColor(IndexedColors.WHITE.getIndex()); // text color
 
         CellStyle cellStyle = sheet.getWorkbook().createCellStyle();
         cellStyle.setFont(font);
         cellStyle.setAlignment(HorizontalAlignment.CENTER);
-//        cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
-//        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-//        cellStyle.setBorderBottom(BorderStyle.THIN);
+        //        cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
+        //        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        //        cellStyle.setBorderBottom(BorderStyle.THIN);
         return cellStyle;
     }
 
@@ -71,7 +73,8 @@ public abstract class AbsExcelService implements IExcelService {
         HttpHeaders headers = new HttpHeaders();
         headers.add(Const.CONTENT_DISPOSITION, String.format(Const.ATTACHMENT_FILENAME, fileName));
 
-        return ResponseEntity.ok().headers(headers)
+        return ResponseEntity.ok()
+                .headers(headers)
                 .contentLength(baos.size())
                 .contentType(MediaType.parseMediaType(extension.getContentType()))
                 .body(new InputStreamResource(new ByteArrayInputStream(baos.toByteArray())));
@@ -92,7 +95,8 @@ public abstract class AbsExcelService implements IExcelService {
                     Object value = field.get(obj);
                     String str = null == value ? Const.EMPTY : field.get(obj).toString();
                     if (ValidateUtils.isNotNullOrEmpty(param.getMapValues())
-                            && ValidateUtils.isNotNullOrEmpty(param.getMapValues().get(fieldName))) {
+                            && ValidateUtils.isNotNullOrEmpty(
+                                    param.getMapValues().get(fieldName))) {
                         str = param.getMapValues().get(fieldName).get(str);
                     }
                     row.createCell(cellIndex).setCellValue(str);
@@ -106,5 +110,4 @@ public abstract class AbsExcelService implements IExcelService {
         }
         return createOutputFile(param.getExtension(), param.getFileName(), baos);
     }
-
 }

@@ -9,7 +9,6 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public enum Extension {
-
     WORD_2003("doc", ".doc", "application/msword"),
     WORD("docx", ".docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
     EXCEL_2003("xls", ".xls", "application/vnd.ms-excel"),
@@ -32,5 +31,4 @@ public enum Extension {
         this.value = value;
         this.dotValue = dotValue;
     }
-
 }

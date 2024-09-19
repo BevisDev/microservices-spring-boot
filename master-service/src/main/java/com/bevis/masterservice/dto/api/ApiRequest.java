@@ -1,19 +1,21 @@
 package com.bevis.masterservice.dto.api;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Date;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.bevis.masterservice.utils.CommonUtils;
 import com.bevis.masterservice.utils.ValidateUtils;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
-import java.io.Serial;
-import java.io.Serializable;
-import java.util.Date;
 
 @Getter
 @Setter

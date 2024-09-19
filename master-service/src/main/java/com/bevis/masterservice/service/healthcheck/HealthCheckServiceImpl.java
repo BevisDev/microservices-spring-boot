@@ -1,14 +1,16 @@
 package com.bevis.masterservice.service.healthcheck;
 
+import org.springframework.stereotype.Component;
+
 import com.bevis.masterservice.config.healthcheck.HealthCheckProps;
 import com.bevis.masterservice.consts.Const;
 import com.bevis.masterservice.dto.api.ApiResponse;
 import com.bevis.masterservice.dto.healthcheck.HealthCheckResp;
 import com.bevis.masterservice.enums.StatusEnum;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
@@ -26,9 +28,6 @@ public class HealthCheckServiceImpl implements HealthCheckService {
                 .status(StatusEnum.SUCCESS.getCapitalValue())
                 .service(Const.HEALTH_CHECK_SYSTEM)
                 .build();
-        return ApiResponse.<HealthCheckResp>builder()
-                .data(healthCheckResp)
-                .build();
+        return ApiResponse.<HealthCheckResp>builder().data(healthCheckResp).build();
     }
 }
-
